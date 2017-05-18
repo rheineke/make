@@ -1,0 +1,11 @@
+.PHONY: all
+
+need:=3.82
+ok:= $(filter $(need),$(firstword $(sort $(MAKE_VERSION) $(need))))
+
+all: ; @echo $(MAKE_VERSION) $(ok)
+
+is_feature = $(if $(filter $1,$(.FEATURES)), T)
+has_features:= $(if $(filter default,$(origin .FEATURES)),$(if $(.FEATURES),T))
+
+feat: ; @echo Hey $(has_features)
