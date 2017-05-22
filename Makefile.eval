@@ -1,0 +1,9 @@
+$(eval eval_available := T)
+
+ifneq ($(eval_available),T)
+$(error This makefile only works with a Make program that supports $$(eval))
+endif
+
+.PHONY: all
+
+all: ; @echo $(eval_available)
