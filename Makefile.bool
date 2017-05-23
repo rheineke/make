@@ -1,0 +1,17 @@
+EMPTY =
+VAR = $(EMPTY)
+$(if $(VAR),$(info if-part),$(info else-part))
+
+HAS_A_VALUE = I'm not empty
+$(if $(HAS_A_VALUE),$(info if-part),$(info else-part))
+
+VAR =
+ifdef VAR
+$(info VAR is defined)
+else
+$(info VAR is undefined)
+endif
+
+.PHONY: all
+
+all: ;
